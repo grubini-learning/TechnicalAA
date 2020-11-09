@@ -15,6 +15,17 @@ const getAllTransactions = function(callback) {
   });
 };
 
+const updateTransactionCategory = (id, category_id, callback) => {
+  const sql = "UPDATE transactions SET category_id=? WHERE id=?";
+  connection.query(sql, [category_id, id], (err, result) => {
+    if (err) {
+      callback(err, null);
+    } else {
+      callback(null, result);
+    }
+  });
+};
+
 const insertCategory = (category, callback) => {
   const sql = "INSERT INTO categories SET name=?, target_budget=?";
   const { name, target_budget } = category;
@@ -52,6 +63,7 @@ const getCategory = (id, callback) => {
 module.exports = {
   getAllTransactions,
   insertCategory,
+  updateTransactionCategory,
   getCategories,
   getCategory
 };

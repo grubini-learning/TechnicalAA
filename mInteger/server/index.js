@@ -62,6 +62,17 @@ app.post('/api/createCategory', (req, res) => {
   });
 });
 
+app.post('/api/updateTransactionCategory', (req, res, next) => {
+  const { id, category_id } = req.body;
+  db.updateTransactionCategory(id, category_id, (err, record) => {
+    if (err) {
+      res.status(404).send();
+    } else {
+      res.status(200).send(record);
+    }
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });

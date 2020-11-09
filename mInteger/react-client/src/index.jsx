@@ -41,6 +41,12 @@ class App extends Component {
       })
       .catch(error => console.log(error));
   }
+  onSelect(payload) {
+    axios.post('http://127.0.0.1:3000/api/updateTransactionCategory', payload)
+      .then(result => result.data)
+      .then(data => console.log(data))
+      .catch(error => console.log(error));
+  }
 
   render() {
     return (
@@ -50,6 +56,7 @@ class App extends Component {
           <TransactionList
             transactions={this.state.transactions}
             categories={this.state.categories}
+            select={this.onSelect.bind(this)}
           />
           <div className="category">
             <h3>Budget Categories</h3>

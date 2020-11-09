@@ -18,6 +18,7 @@ const TransactionList = (props) => {
             key={index}
             transaction={item}
             categories={categories}
+            select={props.select}
           />)
         }
       </div>
