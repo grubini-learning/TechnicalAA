@@ -2,7 +2,7 @@ import React from 'react';
 import TransactionRow from './transaction_row/TransactionRow.jsx';
 
 const TransactionList = (props) => {
-  const { transactions = [] } = props;
+  const { transactions = [], categories = [] } = props;
   return (
     <div className="txn">
       <h3>Transactions</h3>
@@ -14,7 +14,11 @@ const TransactionList = (props) => {
           <div className="txn-data">Category</div>
         </div>
         {
-          transactions.map((item, index) => <TransactionRow key={index} transaction={item} />)
+          transactions.map((item, index) => <TransactionRow
+            key={index}
+            transaction={item}
+            categories={categories}
+          />)
         }
       </div>
     </div>
