@@ -23,3 +23,7 @@ As a user, I want to add customized categories to my list to better reflect my s
 [√] the server is able to create that category and get the records
 [√] the server relayd it back to the server
 
+As a user, I want to assign a budget category to each transaction so I can be aware of where I am spending my money.
+[ ] make the column appear on the screen
+[ ] make the options appear on the screen
+[ ] save to the database

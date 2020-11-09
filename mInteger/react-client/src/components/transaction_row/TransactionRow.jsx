@@ -7,6 +7,7 @@ const TranscationRow = (props) => {
       <div className="txn-data">{date}</div>
       <div className="txn-data">{description}</div>
       <div className="txn-data">{amount}</div>
+      <div className="txn-data">{'none'}</div>
     </div>
   );
 };

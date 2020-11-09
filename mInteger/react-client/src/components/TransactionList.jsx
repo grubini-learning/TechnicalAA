@@ -11,6 +11,7 @@ const TransactionList = (props) => {
           <div className="txn-data">Date</div>
           <div className="txn-data">Description</div>
           <div className="txn-data">Amount</div>
+          <div className="txn-data">Category</div>
         </div>
         {
           transactions.map((item, index) => <TransactionRow key={index} transaction={item} />)

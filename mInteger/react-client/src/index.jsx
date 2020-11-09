@@ -13,7 +13,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      transactions: []
+      transactions: [],
+      categories: []
     };
   }
 
@@ -22,6 +23,23 @@ class App extends Component {
       .then(result => result.data)
       .then(transactions => this.setState({ transactions }))
       .catch(error => console.log(error));
+    axios.get('http://127.0.0.1:3000/api/getCategories')
+      .then(result => result.data)
+      .then(categories => this.setState({ categories }))
+      .catch(e => console.log(e));
+  }
+
+  onSubmit(category) {
+    const payload = { category };
+    axios.post('http://127.0.0.1:3000/api/createCategory', payload)
+      .then(result => result.data)
+      .then(data => data[0])
+      .then(category => {
+        const { name, target_budget } = category;
+        const categories = [...this.state.categories, { name, target_budget }];
+        this.setState({ categories });
+      })
+      .catch(error => console.log(error));
   }
 
   render() {
@@ -29,10 +47,16 @@ class App extends Component {
       <div>
         <h1>mInteger</h1>
         <div className="app">
-          <TransactionList transactions={this.state.transactions} />
+          <TransactionList
+            transactions={this.state.transactions}
+            categories={this.state.categories}
+          />
           <div className="category">
             <h3>Budget Categories</h3>
-            <CategoryList />
+            <CategoryList
+              categories={this.state.categories}
+              submit={this.onSubmit.bind(this)}
+            />
           </div>
         </div>
       </div>
