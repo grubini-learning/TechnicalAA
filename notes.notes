@@ -14,6 +14,9 @@ As a user, I expect to see a list of categories to help me plan my budget.
 [√] create a table for the categories to be inserted
 [√] insert a couple to test
 [√]  able to insert and get the category inserted
+[√] crate category list
+[√] create category row
+[ ] create category create
 [ ] component that relays what category is typed and the budget to the index
 [ ] index is able to make a post request to the server
 [ ] the server is able to create that category and get the records

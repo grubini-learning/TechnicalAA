@@ -28,7 +28,7 @@ const insertCategory = (category, callback) => {
 };
 
 const getCategories = (callback) => {
-  const sql = "SELECT name FROM categories";
+  const sql = "SELECT * FROM categories";
   connection.query(sql, (err, result) => {
     if (err) {
       callback(err, null);
@@ -39,7 +39,7 @@ const getCategories = (callback) => {
 };
 
 const getCategory = (id, callback) => {
-  const sql = "SELECT name FROM categories WHERE id=?";
+  const sql = "SELECT * FROM categories WHERE id=?";
   connection.query(sql, [id], (err, result) => {
     if (err) {
       callback(err, null);

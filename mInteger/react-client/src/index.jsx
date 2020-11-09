@@ -33,19 +33,6 @@ class App extends Component {
           <div className="category">
             <h3>Budget Categories</h3>
             <CategoryList />
-            <div className="category-form">
-              <div className="category-input">
-                <input
-                  type="text"
-                  placeholder="Budget Category"
-                />
-                <input
-                  type="number"
-                  placeholder="Target Budget"
-                />
-              </div>
-              <button>+</button>
-            </div>
           </div>
         </div>
       </div>
