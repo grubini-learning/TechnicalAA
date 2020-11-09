@@ -44,7 +44,12 @@ class App extends Component {
   onSelect(payload) {
     axios.post('http://127.0.0.1:3000/api/updateTransactionCategory', payload)
       .then(result => result.data)
-      .then(data => console.log(data))
+      .then(data => {
+        let categories = [...this.state.categories];
+        const category = categories.find(el => el.id === payload.category_id);
+        categories = categories.filter(el => el.id !== category.id);
+        this.setState({ categories: [category, ...categories] }, () => { console.log(this.state.categories) });
+      })
       .catch(error => console.log(error));
   }
 

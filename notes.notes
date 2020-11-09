@@ -24,6 +24,11 @@ As a user, I want to add customized categories to my list to better reflect my s
 [√] the server relayd it back to the server
 
 As a user, I want to assign a budget category to each transaction so I can be aware of where I am spending my money.
-[ ] make the column appear on the screen
-[ ] make the options appear on the screen
-[ ] save to the database
+[√] make the column appear on the screen
+[√] make the options appear on the screen.
+[√] save to the database
+
+As a user assigning a budget category to a transaction, I want my most frequently used categories to appear at the top of the list so I don't have to scroll down to find them.
+[ ] create an array of selections
+[ ] everytime user selects it will look for the object key and update iys index to 1 and all the others to + 2, 3, 4, 5
+[ ] we could also grab that iotem make a copy of the state and change the array of categories
