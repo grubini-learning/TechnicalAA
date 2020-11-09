@@ -1,5 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' });
 const db = require('../database-mysql');
 const cors = require('./middleware/cors');
 
@@ -74,7 +76,9 @@ app.post('/api/updateTransactionCategory', (req, res, next) => {
 });
 
 app.post('/api/uploadTransactions', (req, res, next) => {
-  console.log(req.body);
+  // console.log(req.file);
+  console.log(req);
+  // upload.single('csvFile'), forecast.create);
 });
 
 app.listen(PORT, () => {

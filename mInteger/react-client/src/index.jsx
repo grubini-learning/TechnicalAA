@@ -77,7 +77,7 @@ class App extends Component {
   onUpload(file) {
     console.log(file);
     const formData = new FormData();
-    formData.append("name", 'transact.csv');
+    formData.append("file", 'transact.csv');
     formData.append("file", file);
     axios
       .post('http://127.0.0.1:3000/api/uploadTransactions', formData)
