@@ -5,6 +5,7 @@ import $ from 'jquery';
 
 import data from './dummy_data.js';
 import TransactionList from './components/TransactionList.jsx';
+// f
 
 class App extends Component {
   constructor(props) {
