@@ -32,3 +32,6 @@ As a user assigning a budget category to a transaction, I want my most frequentl
 [√] we could also grab that iotem make a copy of the state and change the array of categories
 
 As a user, I want to see a chart that shows me how my actual spending habits compare to my planned budget within each category.
+
+
+As a user, I want to be upload my transaction data directly.

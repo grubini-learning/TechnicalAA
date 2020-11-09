@@ -73,6 +73,10 @@ app.post('/api/updateTransactionCategory', (req, res, next) => {
   });
 });
 
+app.post('/api/uploadTransactions', (req, res, next) => {
+  console.log(req.body);
+});
+
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });

@@ -42,6 +42,7 @@ class CategoryList extends Component {
           change={{ onNameChange: this.onNameHandler.bind(this), onBudgetChange: this.onBudgetHandler.bind(this) }}
           click={this.onClear.bind(this)}
           generate={this.props.generate}
+          upload={this.props.upload}
         />
       </>
     );

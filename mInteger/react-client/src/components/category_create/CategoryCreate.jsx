@@ -23,6 +23,10 @@ const CategoryCreate = (props) => {
       </div>
       <button onClick={() => props.click()}>+</button>
       <button onClick={() => props.generate()}>Generate Chart</button>
+      <>
+        <label>Upload your transactions:</label>
+        <input type="file" name="file" accept="text/csv" onChange={(e) => props.upload(e.target.files[0])} />
+      </>
     </div>
   );
 };

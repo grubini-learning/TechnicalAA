@@ -74,6 +74,19 @@ class App extends Component {
     });
   }
 
+  onUpload(file) {
+    console.log(file);
+    const formData = new FormData();
+    formData.append("name", 'transact.csv');
+    formData.append("file", file);
+    axios
+      .post('http://127.0.0.1:3000/api/uploadTransactions', formData)
+      .then((res) => {
+        alert("File Upload success");
+      })
+      .catch((err) => alert("File Upload Error"));
+  }
+
   render() {
     return (
       <div>
@@ -90,6 +103,7 @@ class App extends Component {
               categories={this.state.categories}
               submit={this.onSubmit.bind(this)}
               generate={this.onGenerateChart.bind(this)}
+              upload={this.onUpload.bind(this)}
             />
           </div>
         </div>
