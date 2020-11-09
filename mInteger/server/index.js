@@ -1,12 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('../database-mysql');
+const cors = require('./middleware/cors');
 
 const app = express();
 const PORT = 3000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors);
 
 // UNCOMMENT FOR REACT
 app.use(express.static(__dirname + '/../react-client/dist'));
@@ -23,6 +25,14 @@ app.use(express.static(__dirname + '/../react-client/dist'));
 
 app.get('/api/transactions', (req, res) => {
   //TODO - your code here!
+  db.getAllTransactions((error, records) => {
+    if (error) {
+      res.status(404).send();
+    } else {
+      res.status(200).send(records);
+    }
+  });
+  // console.log('im getting here')
 });
 
 app.listen(PORT, () => {

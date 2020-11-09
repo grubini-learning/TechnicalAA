@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
 import $ from 'jquery';
 
 import data from './dummy_data.js';
@@ -14,7 +15,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setState({ transactions: data });
+    axios.get('http://127.0.0.1:3000/api/transactions')
+      .then(result => result.data)
+      .then(transactions => this.setState({ transactions }))
+      .catch(error => console.log(error));
   }
 
   render() {
