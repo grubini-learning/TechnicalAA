@@ -41,6 +41,7 @@ class CategoryList extends Component {
           values={{ name: this.state.category.name, budget: this.state.category.target_budget }}
           change={{ onNameChange: this.onNameHandler.bind(this), onBudgetChange: this.onBudgetHandler.bind(this) }}
           click={this.onClear.bind(this)}
+          generate={this.props.generate}
         />
       </>
     );

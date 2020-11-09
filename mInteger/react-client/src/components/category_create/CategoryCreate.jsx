@@ -22,6 +22,7 @@ const CategoryCreate = (props) => {
         />
       </div>
       <button onClick={() => props.click()}>+</button>
+      <button onClick={() => props.generate()}>Generate Chart</button>
     </div>
   );
 };

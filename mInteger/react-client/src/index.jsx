@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import $ from 'jquery';
+import c3 from '../../c3js/c3.min.js';
 
 import data from './dummy_data.js';
 import CategoryList from './components/category_list/CategoryList.jsx';
@@ -14,18 +15,26 @@ class App extends Component {
     super(props);
     this.state = {
       transactions: [],
-      categories: []
+      categories: [],
+      actual: [],
+      budget: []
     };
   }
 
   componentDidMount() {
     axios.get('http://127.0.0.1:3000/api/transactions')
       .then(result => result.data)
-      .then(transactions => this.setState({ transactions }))
+      .then(transactions => {
+        const actual = transactions.map(transaction => transaction.amount);
+        this.setState({ transactions, actual });
+      })
       .catch(error => console.log(error));
     axios.get('http://127.0.0.1:3000/api/getCategories')
       .then(result => result.data)
-      .then(categories => this.setState({ categories }))
+      .then(categories => {
+        const budget = categories.map(el => el.target_budget);
+        this.setState({ categories, budget });
+      })
       .catch(e => console.log(e));
   }
 
@@ -53,6 +62,18 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
+  onGenerateChart() {
+    c3.generate({
+      bindto: '#chart',
+      data: {
+        columns: [
+          ['budget', ...this.state.budget],
+          ['actual', ...this.state.actual]
+        ]
+      }
+    });
+  }
+
   render() {
     return (
       <div>
@@ -68,6 +89,7 @@ class App extends Component {
             <CategoryList
               categories={this.state.categories}
               submit={this.onSubmit.bind(this)}
+              generate={this.onGenerateChart.bind(this)}
             />
           </div>
         </div>

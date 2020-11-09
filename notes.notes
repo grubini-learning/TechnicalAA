@@ -29,6 +29,6 @@ As a user, I want to assign a budget category to each transaction so I can be aw
 [√] save to the database
 
 As a user assigning a budget category to a transaction, I want my most frequently used categories to appear at the top of the list so I don't have to scroll down to find them.
-[ ] create an array of selections
-[ ] everytime user selects it will look for the object key and update iys index to 1 and all the others to + 2, 3, 4, 5
-[ ] we could also grab that iotem make a copy of the state and change the array of categories
+[√] we could also grab that iotem make a copy of the state and change the array of categories
+
+As a user, I want to see a chart that shows me how my actual spending habits compare to my planned budget within each category.
