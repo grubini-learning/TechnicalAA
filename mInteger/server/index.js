@@ -35,6 +35,16 @@ app.get('/api/transactions', (req, res) => {
   // console.log('im getting here')
 });
 
+app.get('/api/getCategories', (req, res, next) => {
+  db.getCategories((error, records) => {
+    if (error) {
+      res.status(404).send();
+    } else {
+      res.status(200).send(records);
+    }
+  });
+});
+
 app.post('/api/createCategory', (req, res) => {
   const { category } = req.body;
   db.insertCategory(category, (err, record) => {

@@ -17,7 +17,10 @@ class CategoryList extends Component {
   }
 
   componentDidMount() {
-    this.setState({ categories: data });
+    axios.get('http://127.0.0.1:3000/api/getCategories')
+      .then(result => result.data)
+      .then(categories => this.setState({ categories }))
+      .catch(e => console.log(e));
   }
 
   onNameHandler(name) {

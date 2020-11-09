@@ -52,5 +52,6 @@ const getCategory = (id, callback) => {
 module.exports = {
   getAllTransactions,
   insertCategory,
+  getCategories,
   getCategory
 };
