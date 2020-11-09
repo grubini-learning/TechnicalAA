@@ -1,0 +1,9 @@
+As a user, when I load the app, I expect to see a list of all of my transactions.
+
+[√] figure out the spot where is rendering
+[ ] create a single component for each row and render the static data with it
+[ ] figure out how to route it
+[ ] Get axios performing the request
+[ ] Get the server perform the operation if no auth is needed
+[ ] Respons to the client appropiately
+[ ] The client needs to render the records
