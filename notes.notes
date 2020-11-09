@@ -4,8 +4,19 @@ As a user, when I load the app, I expect to see a list of all of my transactions
 [√] create a single component for each row and render the static data with it
 [√] figure out how to route it
 [√] get db extract the reords wanted
-get the records relayed back to the client
-[ ] Get axios performing the request
-[ ] Get the server perform the operation if no auth is needed
-[ ] Respons to the client appropiately
-[ ] The client needs to render the records
+[√] get the records relayed back to the client
+[√] Get axios performing the request
+[√] Get the server perform the operation if no auth is needed
+[√] Respond to the client appropiately
+[√] The client needs to render the records
+
+As a user, I expect to see a list of categories to help me plan my budget.
+[√] create a table for the categories to be inserted
+[√] insert a couple to test
+[√]  able to insert and get the category inserted
+[ ] component that relays what category is typed and the budget to the index
+[ ] index is able to make a post request to the server
+[ ] the server is able to create that category and get the records
+[ ] the server relayd it back to the server
+
+As a user, I want to add customized categories to my list to better reflect my spending habits.

@@ -35,6 +35,23 @@ app.get('/api/transactions', (req, res) => {
   // console.log('im getting here')
 });
 
+app.post('/api/createCategory', (req, res) => {
+  const { category } = req.body;
+  db.insertCategory(category, (err, record) => {
+    if (err) {
+      res.status(404).send();
+    } else {
+      db.getCategory(record.insertId, (err, record) => {
+        if (err) {
+          res.status(404).send();
+        } else {
+          res.status(200).send(record);
+        }
+      });
+    }
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });

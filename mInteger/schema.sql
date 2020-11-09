@@ -13,17 +13,16 @@ CREATE TABLE transactions (
   PRIMARY KEY (ID)
 );
 
-/*  Execute this file from the command line by typing:
- *    mysql -u <USER> < schema.sql
- *    OR
- *    mysql -u <USER> -p < schema.sql
- *  For example, on a pairing station, it'll be 
- *    mysql -u student -p < schema.sql
- *  and then you'll have to enter the password, student
- *  On your personal computer, if you haven't set up
- *  a password, it'll be 
- *    mysql -u root < schema.sql
-*/
+CREATE TABLE categories (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL,
+  target_budget DECIMAL NOT NULL,
+  PRIMARY KEY (id)
+);
+
+INSERT INTO categories (name, target_budget) VALUES ("Food", 2.55);
+INSERT INTO categories (name, target_budget) VALUES ("Rent", 5.55);
+
 
 INSERT INTO transactions (id, amount, description, date) VALUES (1, -4.55, "EQUATOR", "2017-08-02");
 INSERT INTO transactions (id, amount, description, date) VALUES (2, -9.19, "CHIPOTLE", "2017-08-02");
@@ -45,3 +44,14 @@ INSERT INTO transactions (id, amount, description, date) VALUES (17, -9.99, "SPO
 INSERT INTO transactions (id, amount, description, date) VALUES (18, -3.85, "EQUATOR", "2017-08-20");
 INSERT INTO transactions (id, amount, description, date) VALUES (19, -18.00, "AMC", "2017-08-21");
 INSERT INTO transactions (id, amount, description, date) VALUES (20, -11.42, "TARGET", "2017-08-22");
+/*  Execute this file from the command line by typing:
+ *    mysql -u <USER> < schema.sql
+ *    OR
+ *    mysql -u <USER> -p < schema.sql
+ *  For example, on a pairing station, it'll be
+ *    mysql -u student -p < schema.sql
+ *  and then you'll have to enter the password, student
+ *  On your personal computer, if you haven't set up
+ *  a password, it'll be
+ *    mysql -u root < schema.sql
+*/

@@ -4,6 +4,8 @@ import axios from 'axios';
 import $ from 'jquery';
 
 import data from './dummy_data.js';
+import CategoryList from './components/category_list/CategoryList.jsx';
+
 import TransactionList from './components/TransactionList.jsx';
 // f
 
@@ -30,13 +32,7 @@ class App extends Component {
           <TransactionList transactions={this.state.transactions} />
           <div className="category">
             <h3>Budget Categories</h3>
-            <div className="category-list">
-              <div className="category-data">Food</div>
-              <div className="category-data">Entertainment</div>
-              <div className="category-data">Transportation</div>
-              <div className="category-data">Rent</div>
-              <div className="category-data">Bills</div>
-            </div>
+            <CategoryList />
             <div className="category-form">
               <div className="category-input">
                 <input
